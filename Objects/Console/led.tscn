@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk7pnpd7xe1cg"]
+
+[ext_resource type="Texture2D" uid="uid://bmqcxhbugeukp" path="res://Assets/Sprites/Console/Led.png" id="1_0dxuh"]
+[ext_resource type="Script" path="res://Objects/Console/led.gd" id="2_438dy"]
+
+[node name="Led" type="Sprite2D"]
+texture = ExtResource("1_0dxuh")
+script = ExtResource("2_438dy")

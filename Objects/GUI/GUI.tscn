@@ -1,0 +1,154 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0hnyjlv8t2ki"]
+
+[ext_resource type="Texture2D" uid="uid://pwc3dn43286u" path="res://Assets/Sprites/Console/Background.png" id="1_38j1w"]
+[ext_resource type="Script" path="res://Objects/GUI/gui.gd" id="1_gqfuo"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gqfuo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_38j1w")
+centered = false
+
+[node name="FluxCapacitor" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 288.0
+offset_right = 312.0
+offset_bottom = 516.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FluxCapacitor"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FluxCapacitor/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Flux Capacitor"
+
+[node name="Calibrate" type="Button" parent="FluxCapacitor/VBoxContainer"]
+layout_mode = 2
+text = "Calibrate"
+
+[node name="Revert" type="Button" parent="FluxCapacitor/VBoxContainer"]
+layout_mode = 2
+text = "Revert"
+
+[node name="Override" type="Button" parent="FluxCapacitor/VBoxContainer"]
+layout_mode = 2
+text = "Override"
+
+[node name="CryogenicValve" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 464.0
+offset_right = 1240.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CryogenicValve"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CryogenicValve/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Cryogenic Valve"
+
+[node name="Open" type="Button" parent="CryogenicValve/VBoxContainer"]
+layout_mode = 2
+text = "Open"
+
+[node name="Close" type="Button" parent="CryogenicValve/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CryogenicValve/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CryogenicValve/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.168627, 0.32549, 1)
+text = "Flow:"
+
+[node name="AdjustFlow" type="HSlider" parent="CryogenicValve/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+max_value = 4.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="NeutronOscillator" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 288.0
+offset_right = 656.0
+offset_bottom = 496.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NeutronOscillator"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NeutronOscillator/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Neutron Oscillator"
+
+[node name="Activate" type="Button" parent="NeutronOscillator/VBoxContainer"]
+layout_mode = 2
+text = "Activate"
+
+[node name="Deactivate" type="Button" parent="NeutronOscillator/VBoxContainer"]
+layout_mode = 2
+text = "Deactivate"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NeutronOscillator/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NeutronOscillator/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.168627, 0.32549, 1)
+text = "Frequency:"
+
+[node name="AdjustFrequency" type="HSlider" parent="NeutronOscillator/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+max_value = 4.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="MainScreenText" type="RichTextLabel" parent="."]
+self_modulate = Color(3, 3, 3, 1)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 664.0
+offset_bottom = 248.0
+bbcode_enabled = true
+text = "[color=green]This is green text[/color]
+[color=red]This is red text[/color]"
+scroll_following = true
+
+[node name="SecondaryScreenText" type="RichTextLabel" parent="."]
+self_modulate = Color(3, 3, 3, 1)
+layout_mode = 0
+offset_left = 872.0
+offset_top = 40.0
+offset_right = 1224.0
+offset_bottom = 424.0
+bbcode_enabled = true
+
+[connection signal="pressed" from="FluxCapacitor/VBoxContainer/Calibrate" to="." method="_on_flux_capacitor_calibrate_pressed"]
+[connection signal="pressed" from="FluxCapacitor/VBoxContainer/Revert" to="." method="_on_flux_capacitor_revert_pressed"]
+[connection signal="pressed" from="FluxCapacitor/VBoxContainer/Override" to="." method="_on_flux_capacitor_override_pressed"]
+[connection signal="pressed" from="CryogenicValve/VBoxContainer/Open" to="." method="_on_cryogenic_valve_open_pressed"]
+[connection signal="pressed" from="CryogenicValve/VBoxContainer/Close" to="." method="_on_cryogenic_valve_close_pressed"]
+[connection signal="drag_ended" from="CryogenicValve/VBoxContainer/HBoxContainer/AdjustFlow" to="." method="_on_adjust_cryogenic_valve_flow_drag_ended"]
+[connection signal="pressed" from="NeutronOscillator/VBoxContainer/Activate" to="." method="_on_neutron_oscillator_activate_pressed"]
+[connection signal="pressed" from="NeutronOscillator/VBoxContainer/Deactivate" to="." method="_on_neutron_oscillator_deactivate_pressed"]
+[connection signal="drag_ended" from="NeutronOscillator/VBoxContainer/HBoxContainer/AdjustFrequency" to="." method="_on_adjust_neutron_oscillator_frequency_drag_ended"]

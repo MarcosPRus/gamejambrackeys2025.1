@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnk3xv6fvtx5t"]
+
+[ext_resource type="Texture2D" uid="uid://pwc3dn43286u" path="res://Assets/Sprites/Console/Background.png" id="1_nbakp"]
+[ext_resource type="Texture2D" uid="uid://8h4supsfhn6a" path="res://Assets/Sprites/Console/Main_Screen.png" id="2_27hy7"]
+[ext_resource type="PackedScene" uid="uid://bk7pnpd7xe1cg" path="res://Objects/Console/led.tscn" id="3_klik0"]
+[ext_resource type="Texture2D" uid="uid://bivbgp3vb5btq" path="res://Assets/Sprites/Console/Secondary_Screen.png" id="3_mo5wj"]
+
+[node name="Console" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_nbakp")
+centered = false
+
+[node name="MainScreen" type="Sprite2D" parent="."]
+texture = ExtResource("2_27hy7")
+centered = false
+
+[node name="SecondaryScreen" type="Sprite2D" parent="."]
+texture = ExtResource("3_mo5wj")
+centered = false
+
+[node name="Led" parent="." instance=ExtResource("3_klik0")]
+position = Vector2(64, 307)
+
+[node name="Led2" parent="." instance=ExtResource("3_klik0")]
+position = Vector2(144, 307)
+
+[node name="Led3" parent="." instance=ExtResource("3_klik0")]
+position = Vector2(224, 307)

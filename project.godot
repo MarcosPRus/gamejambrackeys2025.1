@@ -28,7 +28,7 @@ window/stretch/mode="viewport"
 [gui]
 
 theme/custom="res://Assets/Resources/CustomTheme.tres"
-theme/custom_font="res://Assets/Resources/Minecraft.ttf"
+theme/custom_font="res://Assets/Resources/fonts/Hydrogen Whiskey font.otf"
 
 [rendering]
 

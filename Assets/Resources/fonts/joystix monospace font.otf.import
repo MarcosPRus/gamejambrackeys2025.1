@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cd48auc8vns0c"
-path="res://.godot/imported/Minecraft.ttf-1d9bb657883294d5a516528d2cc2ac1c.fontdata"
+uid="uid://sk5lo6l1qt4p"
+path="res://.godot/imported/joystix monospace font.otf-009f252500801968dca92f38397ccfec.fontdata"
 
 [deps]
 
-source_file="res://Assets/Resources/Minecraft.ttf"
-dest_files=["res://.godot/imported/Minecraft.ttf-1d9bb657883294d5a516528d2cc2ac1c.fontdata"]
+source_file="res://Assets/Resources/fonts/joystix monospace font.otf"
+dest_files=["res://.godot/imported/joystix monospace font.otf-009f252500801968dca92f38397ccfec.fontdata"]
 
 [params]
 

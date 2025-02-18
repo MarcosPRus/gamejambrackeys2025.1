@@ -1,14 +1,16 @@
 extends Control
 
 var writing_speed := 20 # In letters/second
-
+var tween
 
 func _ready() -> void:
 	Global.GUI = self
 
 
 func set_main_screen_text(new_text:String) -> void:
-	var tween = get_tree().create_tween()
+	if tween:
+		tween.kill()
+	tween = create_tween()
 	tween.tween_method(animate_main_text, "", new_text, new_text.length()/writing_speed)
 
 func set_secondary_screen_text(new_text:String) -> void:

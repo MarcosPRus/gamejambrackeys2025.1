@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0hnyjlv8t2ki"]
+[gd_scene load_steps=4 format=3 uid="uid://b0hnyjlv8t2ki"]
 
 [ext_resource type="Texture2D" uid="uid://pwc3dn43286u" path="res://Assets/Sprites/Console/Background.png" id="1_38j1w"]
 [ext_resource type="Script" path="res://Objects/GUI/gui.gd" id="1_gqfuo"]
+[ext_resource type="Script" path="res://Objects/GUI/GUI_panel.gd" id="3_ixn6v"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -23,6 +24,7 @@ offset_left = 32.0
 offset_top = 288.0
 offset_right = 270.0
 offset_bottom = 472.0
+script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FluxCapacitor"]
 layout_mode = 2
@@ -52,6 +54,7 @@ offset_left = 32.0
 offset_top = 496.0
 offset_right = 309.0
 offset_bottom = 676.0
+script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CryogenicValve"]
 layout_mode = 2
@@ -92,6 +95,7 @@ offset_left = 296.0
 offset_top = 288.0
 offset_right = 593.0
 offset_bottom = 472.0
+script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NeutronOscillator"]
 layout_mode = 2

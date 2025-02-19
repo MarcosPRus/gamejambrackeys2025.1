@@ -1,6 +1,12 @@
 extends Node
 
 var GUI : Control
+var Camera : Camera2D
+var main_screen_tween : Tween
+
+var fire_scene = preload("res://Objects/Fire/fire.tscn")
+
+var crisis_mode : bool = false
 
 var task_count : int = 0
 var current_task_sequence : Array[String] = []
@@ -49,6 +55,21 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	change_state(GameState.START)
 
+func _process(delta: float) -> void:
+	if crisis_mode:
+		run_crisis_mode()
+
+
+func run_crisis_mode() -> void:
+	var intensity: int = randi_range(10,40)
+	var duration: float = randf_range(1.0, 3.0)
+	Camera.shake(intensity, duration)
+	crisis_mode = false
+	
+	if randf() > 0.9:
+		var fire_instance = fire_scene.instantiate()
+		fire_instance.global_position = Vector2(randi_range(0,1280), randi_range(0,720))
+		get_tree().current_scene.add_child(fire_instance)
 
 func change_state(new_state: int) -> void:
 	# TODO: Clean up the previous state
@@ -73,19 +94,30 @@ func change_state(new_state: int) -> void:
 		GameState.MISSION_COMPLETE:
 			mission_complete_state()
 
+func wait(time: float, wait_writing: bool) -> void:
+	if wait_writing:
+		await GUI.writing_finished
+	await get_tree().create_timer(time).timeout
 
 func start_state() -> void:
 	print("Start state entered")
-	GUI.set_main_screen_text("Good morning, Commander!                   
-Today is the final day of our expedition.                   
-As always, everything is running perfectly.                   
-We are scheduled to arrive at the destination in just a few hours.             
-Congratulations on another flawlessly succesful mission!                   
-I've reviewed all the ship systems and identified a few minor parameters that need a quick adjustment to maintain our pristine operational status.                   
-
-Please complete the tasks displayed in the right panel [color=#FF004D]in the correct order[/color].")
+	GUI.clear_main_screen()
+	crisis_mode = false
 	
-	await get_tree().create_timer(1).timeout # TODO: Poner a 30 en la versión final
+	GUI.append_main_screen_text("Good morning, Commander!")
+	await wait(1, true)
+	GUI.append_main_screen_text("\n\nToday is the final day of our expedition.")
+	await wait(1, true)
+	GUI.append_main_screen_text(" As always, everything is running perfectly.")
+	await wait(1, true)
+	GUI.append_main_screen_text("\n\nWe are scheduled to arrive at the destination in just a few hours.")
+	await wait(1, true)
+	GUI.append_main_screen_text(" At this point in the mission, nothing can possibly go wrong, so congratulations on another flawlessly succesful mission!")
+	await wait(1.5, true)
+	GUI.append_main_screen_text("\n\nI've reviewed all the ship systems and identified a few minor parameters that need a quick adjustment to maintain our pristine operational status.")
+	await wait(1, true)
+	GUI.append_main_screen_text("\n\nPlease complete the tasks displayed in the right panel in the correct order.")
+	await wait(0, true)
 	
 	task_count = 3
 	setup_tasks_sequence()
@@ -93,12 +125,25 @@ Please complete the tasks displayed in the right panel [color=#FF004D]in the cor
 
 func micrometeors_state() -> void:
 	print("Micrometeors state entered")
-	GUI.set_main_screen_text("Great job commander!                                         
-What is that sound?                
-Oh! looks like some meteorites are impacting the ship.           
-There is no need to worry, we just need to increase the shields power")
-
-	await get_tree().create_timer(1).timeout # TODO: Poner a 30 en la versión final
+	GUI.clear_main_screen()
+	
+	GUI.append_main_screen_text("Excellent work, Commander!")
+	await wait(2, true)
+	
+	crisis_mode = true
+	await wait(1.5, false)
+	
+	GUI.append_main_screen_text("\n\nI am detecting a curious vibration on the ships hull")
+	await wait(0.5, true)
+	
+	GUI.append_main_screen_text("\n\nCould that be... meteorites?")
+	await wait(0.5, true)
+	
+	GUI.append_main_screen_text("\n\nNo need to worry, we just need to increase the shields power a bit and we'll deflect them effortlessly")
+	await wait(0.5, true)
+	
+	GUI.append_main_screen_text("\n\nPlease complete the tasks displayed in the right panel in the correct order.")
+	await wait(0, true)
 	
 	task_count = 5
 	setup_tasks_sequence()
@@ -106,9 +151,8 @@ There is no need to worry, we just need to increase the shields power")
 
 func reactor_oh_state() -> void:
 	print("Reactor overheat state entered")
-	GUI.set_main_screen_text("Ups, now the reactor is over heating")
-
-	await get_tree().create_timer(1).timeout # TODO: Poner a 30 en la versión final
+	crisis_mode = false
+	GUI.clear_main_screen()
 	
 	task_count = 10
 	setup_tasks_sequence()

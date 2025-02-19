@@ -1,6 +1,6 @@
 extends PanelContainer
 
-var broken: bool = true
+var broken: bool = false
 var mouse_inside: bool = false
 
 @export var speed : float = 1.5

@@ -3,6 +3,10 @@ extends Control
 var writing_speed : float = 150.0 # In letters/second
 var tween
 
+@onready var MainScreenText := $MainScreenContainer/MainScreenText
+@onready var SecondaryScreenText := $SecondaryScreenContainer/SecondaryScreenText
+@onready var ShipIntegrityProgressBar := $TextureProgressBar
+
 signal writing_finished
 
 
@@ -10,11 +14,11 @@ func _ready() -> void:
 	Global.GUI = self
 
 func _process(delta: float) -> void:
-	$TextureProgressBar.value = Global.ship_integrity
+	ShipIntegrityProgressBar.value = Global.ship_integrity
 
 
 func clear_main_screen() -> void:
-	$MainScreenText.text = ""
+	MainScreenText.text = ""
 
 #func set_main_screen_text(new_text:String) -> void:
 	#if tween:
@@ -26,15 +30,15 @@ func clear_main_screen() -> void:
 func append_main_screen_text(new_text: String) -> void:
 	var text_length = new_text.length()
 	for i in text_length:
-		$MainScreenText.append_text(new_text[i])
+		MainScreenText.append_text(new_text[i])
 		await get_tree().create_timer(1/writing_speed).timeout
 	writing_finished.emit()
 
 func set_secondary_screen_text(new_text:String) -> void:
-	$SecondaryScreenText.text = new_text
+	SecondaryScreenText.text = new_text
 
 func append_task(task:String) -> void:
-	$SecondaryScreenText.append_text(task)
+	SecondaryScreenText.append_text(task)
 
 #func animate_main_text(new_text:String) -> void:
 	#$MainScreenText.text = new_text

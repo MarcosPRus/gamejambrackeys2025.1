@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnk3xv6fvtx5t"]
+[gd_scene load_steps=2 format=3 uid="uid://cnk3xv6fvtx5t"]
 
-[ext_resource type="Texture2D" uid="uid://pwc3dn43286u" path="res://Assets/Sprites/Console/Background.png" id="1_nbakp"]
 [ext_resource type="Texture2D" uid="uid://b4387ypw71fp1" path="res://Assets/Sprites/Textures/Metal/Mat_Metal_Gray_02-512x512.png" id="1_pta7k"]
-[ext_resource type="Texture2D" uid="uid://8h4supsfhn6a" path="res://Assets/Sprites/Console/Main_Screen.png" id="2_27hy7"]
-[ext_resource type="Texture2D" uid="uid://bivbgp3vb5btq" path="res://Assets/Sprites/Console/Secondary_Screen.png" id="3_mo5wj"]
 
 [node name="Console" type="Node2D"]
 
@@ -13,15 +10,3 @@ offset_top = -55.0
 offset_right = 1327.0
 offset_bottom = 761.0
 texture = ExtResource("1_pta7k")
-
-[node name="ScreensBorders" type="Sprite2D" parent="."]
-texture = ExtResource("1_nbakp")
-centered = false
-
-[node name="MainScreen" type="Sprite2D" parent="."]
-texture = ExtResource("2_27hy7")
-centered = false
-
-[node name="SecondaryScreen" type="Sprite2D" parent="."]
-texture = ExtResource("3_mo5wj")
-centered = false

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkv51fcanfo0r"]
+
+[ext_resource type="Script" path="res://Objects/CrisisHandler/crisis_handler.gd" id="1_h1dux"]
+[ext_resource type="Script" path="res://Objects/Main/camera_2d.gd" id="2_65ngm"]
+[ext_resource type="AudioStream" uid="uid://wfldvutwd6wk" path="res://Assets/Sounds/Arcade Explosion.wav" id="3_iafhy"]
+[ext_resource type="AudioStream" uid="uid://cwcyikhxgh72g" path="res://Assets/Sounds/Alarm Sound.wav" id="4_q55hf"]
+
+[node name="CrisisHandler" type="Node2D"]
+script = ExtResource("1_h1dux")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("2_65ngm")
+
+[node name="ExplosionSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iafhy")
+pitch_scale = 0.19
+
+[node name="AlarmSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_q55hf")
+volume_db = -15.0

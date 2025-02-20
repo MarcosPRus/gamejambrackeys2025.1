@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Objects/Main/main.gd" id="1_sg56b"]
 [ext_resource type="PackedScene" uid="uid://cnk3xv6fvtx5t" path="res://Objects/Console/console.tscn" id="2_g6mka"]
 [ext_resource type="PackedScene" uid="uid://b0hnyjlv8t2ki" path="res://Objects/GUI/GUI.tscn" id="3_beutd"]
-[ext_resource type="Script" path="res://Objects/Main/camera_2d.gd" id="4_fe8by"]
+[ext_resource type="PackedScene" uid="uid://dkv51fcanfo0r" path="res://Objects/CrisisHandler/crisis_handler.tscn" id="4_r11xp"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_t3wax"]
 frequency = 0.5
@@ -27,6 +27,4 @@ environment = SubResource("Environment_pki53")
 
 [node name="GUI" parent="." instance=ExtResource("3_beutd")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-script = ExtResource("4_fe8by")
+[node name="CrisisHandler" parent="." instance=ExtResource("4_r11xp")]

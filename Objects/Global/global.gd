@@ -1,12 +1,12 @@
 extends Node
 
 var GUI : Control
-var Camera : Camera2D
 var main_screen_tween : Tween
 
-var fire_scene = preload("res://Objects/Fire/fire.tscn")
-
 var crisis_mode : bool = false
+var crisis_level : float = 1.0
+
+var ship_integrity: float = 100.0
 
 var task_count : int = 0
 var current_task_sequence : Array[String] = []
@@ -55,21 +55,6 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	change_state(GameState.START)
 
-func _process(delta: float) -> void:
-	if crisis_mode:
-		run_crisis_mode()
-
-
-func run_crisis_mode() -> void:
-	var intensity: int = randi_range(10,40)
-	var duration: float = randf_range(1.0, 3.0)
-	Camera.shake(intensity, duration)
-	crisis_mode = false
-	
-	if randf() > 0.9:
-		var fire_instance = fire_scene.instantiate()
-		fire_instance.global_position = Vector2(randi_range(0,1280), randi_range(0,720))
-		get_tree().current_scene.add_child(fire_instance)
 
 func change_state(new_state: int) -> void:
 	# TODO: Clean up the previous state
@@ -102,7 +87,8 @@ func wait(time: float, wait_writing: bool) -> void:
 func start_state() -> void:
 	print("Start state entered")
 	GUI.clear_main_screen()
-	crisis_mode = false
+	crisis_level = 5
+	crisis_mode = true
 	
 	GUI.append_main_screen_text("Good morning, Commander!")
 	await wait(1, true)
@@ -134,18 +120,18 @@ func micrometeors_state() -> void:
 	await wait(1.5, false)
 	
 	GUI.append_main_screen_text("\n\nI am detecting a curious vibration on the ships hull")
-	await wait(0.5, true)
+	await wait(1, true)
 	
 	GUI.append_main_screen_text("\n\nCould that be... meteorites?")
-	await wait(0.5, true)
+	await wait(1, true)
 	
 	GUI.append_main_screen_text("\n\nNo need to worry, we just need to increase the shields power a bit and we'll deflect them effortlessly")
-	await wait(0.5, true)
+	await wait(1, true)
 	
 	GUI.append_main_screen_text("\n\nPlease complete the tasks displayed in the right panel in the correct order.")
 	await wait(0, true)
 	
-	task_count = 5
+	task_count = 8
 	setup_tasks_sequence()
 
 
@@ -154,7 +140,19 @@ func reactor_oh_state() -> void:
 	crisis_mode = false
 	GUI.clear_main_screen()
 	
-	task_count = 10
+	GUI.append_main_screen_text("Great job avoiding that little crisis, Commander!")
+	await wait(2, true)
+	
+	GUI.append_main_screen_text("Looks like some control panels have fallen and there are a few fires.")
+	await wait(0.75, true)
+	
+	GUI.append_main_screen("No need to worry! Just tap the fallen panels to fix them and press the red extinction button to clear the fires.")
+	await wait(0.75, true)
+	
+	crisis_mode = true
+	crisis_level = 1.1
+	
+	task_count = 15
 	setup_tasks_sequence()
 
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0hnyjlv8t2ki"]
+[gd_scene load_steps=6 format=3 uid="uid://b0hnyjlv8t2ki"]
 
 [ext_resource type="Texture2D" uid="uid://pwc3dn43286u" path="res://Assets/Sprites/Console/Background.png" id="1_38j1w"]
 [ext_resource type="Script" path="res://Objects/GUI/gui.gd" id="1_gqfuo"]
 [ext_resource type="Script" path="res://Objects/GUI/GUI_panel.gd" id="3_ixn6v"]
+[ext_resource type="Texture2D" uid="uid://uyipdsugflsm" path="res://Assets/Sprites/GUI Elements/ProgressBar/Under.png" id="4_jagda"]
+[ext_resource type="Texture2D" uid="uid://he51s5s6sicu" path="res://Assets/Sprites/GUI Elements/ProgressBar/Progress.png" id="5_wabh2"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -14,7 +16,6 @@ grow_vertical = 2
 script = ExtResource("1_gqfuo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("1_38j1w")
 centered = false
 
@@ -150,6 +151,18 @@ offset_top = 40.0
 offset_right = 1224.0
 offset_bottom = 424.0
 bbcode_enabled = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 16.0
+offset_right = 760.0
+offset_bottom = 272.0
+step = 0.1
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("4_jagda")
+texture_progress = ExtResource("5_wabh2")
 
 [connection signal="pressed" from="FluxCapacitor/VBoxContainer/Calibrate" to="." method="_on_flux_capacitor_calibrate_pressed"]
 [connection signal="pressed" from="FluxCapacitor/VBoxContainer/Revert" to="." method="_on_flux_capacitor_revert_pressed"]

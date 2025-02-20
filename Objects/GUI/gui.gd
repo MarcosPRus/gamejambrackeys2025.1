@@ -9,6 +9,9 @@ signal writing_finished
 func _ready() -> void:
 	Global.GUI = self
 
+func _process(delta: float) -> void:
+	$TextureProgressBar.value = Global.ship_integrity
+
 
 func clear_main_screen() -> void:
 	$MainScreenText.text = ""

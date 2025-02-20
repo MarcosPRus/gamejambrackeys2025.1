@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0hnyjlv8t2ki"]
 
-[ext_resource type="Texture2D" uid="uid://pwc3dn43286u" path="res://Assets/Sprites/Console/Background.png" id="1_38j1w"]
 [ext_resource type="Script" path="res://Objects/GUI/gui.gd" id="1_gqfuo"]
+[ext_resource type="PackedScene" uid="uid://cnk3xv6fvtx5t" path="res://Objects/Console/console.tscn" id="2_qcdrg"]
 [ext_resource type="Script" path="res://Objects/GUI/GUI_panel.gd" id="3_ixn6v"]
 [ext_resource type="Texture2D" uid="uid://uyipdsugflsm" path="res://Assets/Sprites/GUI Elements/ProgressBar/Under.png" id="4_jagda"]
 [ext_resource type="Texture2D" uid="uid://he51s5s6sicu" path="res://Assets/Sprites/GUI Elements/ProgressBar/Progress.png" id="5_wabh2"]
@@ -15,15 +15,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gqfuo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_38j1w")
-centered = false
+[node name="Console" parent="." instance=ExtResource("2_qcdrg")]
 
 [node name="FluxCapacitor" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 32.0
+offset_left = 96.0
 offset_top = 288.0
-offset_right = 270.0
+offset_right = 334.0
 offset_bottom = 472.0
 script = ExtResource("3_ixn6v")
 
@@ -51,10 +49,10 @@ text = "Override"
 
 [node name="CryogenicValve" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 496.0
-offset_right = 309.0
-offset_bottom = 676.0
+offset_left = 96.0
+offset_top = 520.0
+offset_right = 373.0
+offset_bottom = 700.0
 script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CryogenicValve"]
@@ -92,10 +90,10 @@ ticks_on_borders = true
 
 [node name="NeutronOscillator" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 296.0
-offset_top = 288.0
-offset_right = 593.0
-offset_bottom = 472.0
+offset_left = 896.0
+offset_top = 464.0
+offset_right = 1193.0
+offset_bottom = 648.0
 script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NeutronOscillator"]
@@ -154,10 +152,10 @@ bbcode_enabled = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 696.0
-offset_top = 16.0
-offset_right = 760.0
-offset_bottom = 272.0
+offset_left = 16.0
+offset_top = 272.0
+offset_right = 80.0
+offset_bottom = 528.0
 step = 0.1
 value = 100.0
 fill_mode = 3

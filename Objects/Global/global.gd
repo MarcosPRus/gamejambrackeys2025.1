@@ -87,7 +87,7 @@ func wait(time: float, wait_writing: bool) -> void:
 func start_state() -> void:
 	print("Start state entered")
 	GUI.clear_main_screen()
-	crisis_level = 5
+	crisis_level = 0.5
 	crisis_mode = true
 	
 	GUI.append_main_screen_text("Good morning, Commander!")
@@ -143,7 +143,7 @@ func reactor_oh_state() -> void:
 	GUI.append_main_screen_text("Great job avoiding that little crisis, Commander!")
 	await wait(2, true)
 	
-	GUI.append_main_screen_text("Looks like some control panels have fallen and there are a few fires.")
+	GUI.append_main_screen_text("\n\nLooks like some control panels have fallen and there are a few fires.")
 	await wait(0.75, true)
 	
 	GUI.append_main_screen("No need to worry! Just tap the fallen panels to fix them and press the red extinction button to clear the fires.")

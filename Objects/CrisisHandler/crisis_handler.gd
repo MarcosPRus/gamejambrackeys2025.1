@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 		shake_camera()
 		create_fires()
 		drop_panels()
+		Global.ship_integrity -= delta
 	else:
 		AlarmSoundPlayer.stop()
 

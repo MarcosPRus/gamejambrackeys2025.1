@@ -5,9 +5,7 @@ var time_passed := 0.0
 
 
 func _ready() -> void:
-	$Console/Led.set_led_color("green")
-	$Console/Led2.set_led_color("green")
-	$Console/Led3.set_led_color("red")
+	pass
 
 
 func _process(delta: float) -> void:

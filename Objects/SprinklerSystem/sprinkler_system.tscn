@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cinyq7s5lh2pt"]
+
+[ext_resource type="Script" path="res://Objects/SprinklerSystem/sprinkler_system.gd" id="1_wcj65"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p31n6"]
+particle_flag_disable_z = true
+angle_min = -45.0
+angle_max = 45.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 75.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 200, 0)
+scale_min = 3.0
+scale_max = 5.0
+color = Color(0.160784, 0.678431, 1, 1)
+
+[node name="SprinklerSystem" type="Node2D"]
+script = ExtResource("1_wcj65")
+
+[node name="Sprinkler1" type="GPUParticles2D" parent="."]
+position = Vector2(137, 0)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_p31n6")
+lifetime = 3.0
+
+[node name="Sprinkler2" type="GPUParticles2D" parent="."]
+position = Vector2(337, 0)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_p31n6")
+lifetime = 3.0
+
+[node name="Sprinkler3" type="GPUParticles2D" parent="."]
+position = Vector2(537, 0)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_p31n6")
+lifetime = 3.0
+
+[node name="Sprinkler4" type="GPUParticles2D" parent="."]
+position = Vector2(737, 0)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_p31n6")
+lifetime = 3.0
+
+[node name="Sprinkler5" type="GPUParticles2D" parent="."]
+position = Vector2(937, 0)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_p31n6")
+lifetime = 3.0
+
+[node name="Sprinkler6" type="GPUParticles2D" parent="."]
+position = Vector2(1137, 0)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_p31n6")
+lifetime = 3.0

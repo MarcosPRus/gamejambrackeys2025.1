@@ -5,8 +5,9 @@ var fire_scene = preload("res://Objects/Fire/fire.tscn")
 @onready var Camera = $Camera2D
 @onready var ExplosionSoundPlayer = $ExplosionSoundPlayer
 @onready var AlarmSoundPlayer = $AlarmSoundPlayer
+@onready var SprinklerSystem = $SprinklerSystem
 
-var fire_chance: float = 0.002
+var fire_chance: float = 0.001
 var panel_drop_chance: float = 0.0005
 
 
@@ -34,6 +35,8 @@ func create_fires():
 		var fire_instance = fire_scene.instantiate()
 		fire_instance.global_position = Vector2(randi_range(0,1280), randi_range(0,720))
 		get_tree().current_scene.add_child(fire_instance)
+		
+		SprinklerSystem.start_sprinklers()
 
 func drop_panels():
 	pass

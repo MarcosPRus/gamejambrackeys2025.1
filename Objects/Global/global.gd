@@ -198,7 +198,7 @@ func setup_tasks_sequence() -> void:
 	current_task_sequence = tasks_pool.slice(0, task_count)
 	
 	for i in current_task_sequence.size():
-		current_task_sequence[i] = current_task_sequence[i].replace("XXX", str(randi_range(0,4)))
+		current_task_sequence[i] = current_task_sequence[i].replace("XXX", str(randi_range(1,4)))
 		GUI.append_task("[color=#FF004D]" + str(i+1) + ". " + current_task_sequence[i] + "[/color]")
 		GUI.append_task("
 

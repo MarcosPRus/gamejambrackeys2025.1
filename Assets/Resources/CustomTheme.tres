@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://qphyb6yi7v3u"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://qphyb6yi7v3u"]
 
 [ext_resource type="StyleBox" uid="uid://dds2q1x1864sf" path="res://Assets/Resources/new_style_box_flat.tres" id="1_b4d6a"]
 [ext_resource type="Texture2D" uid="uid://bld2e0sw1qiga" path="res://Assets/Sprites/GUI Elements/Panel_Texture.png" id="1_rmgjf"]
+[ext_resource type="Texture2D" uid="uid://uyipdsugflsm" path="res://Assets/Sprites/GUI Elements/ProgressBar/Under.png" id="3_034wy"]
+[ext_resource type="Texture2D" uid="uid://bislxsop2c60k" path="res://Assets/Sprites/GUI Elements/ProgressBar/Progress_horizontal.png" id="4_y7h03"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mq6v0"]
 bg_color = Color(0.503253, 0.508574, 0.530023, 1)
@@ -52,6 +54,12 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngith"]
+texture = ExtResource("3_034wy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3eum6"]
+texture = ExtResource("4_y7h03")
+
 [resource]
 default_font_size = 16
 BoxContainer/constants/separation = 16
@@ -68,3 +76,5 @@ HSlider/icons/grabber = null
 Label/colors/font_color = Color(0.113725, 0.168627, 0.32549, 1)
 Label/constants/outline_size = 1
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_euyy8")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_ngith")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_3eum6")

@@ -88,8 +88,7 @@ func wait(time: float, wait_writing: bool) -> void:
 func start_state() -> void:
 	print("Start state entered")
 	GUI.clear_main_screen()
-	crisis_level = 0.5
-	crisis_mode = true
+	crisis_mode = false
 	
 	GUI.append_main_screen_text("Good morning, Commander!")
 	await wait(1, true)
@@ -117,18 +116,16 @@ func micrometeors_state() -> void:
 	GUI.append_main_screen_text("Excellent work, Commander!")
 	await wait(2, true)
 	
+	crisis_level = 0.5
 	crisis_mode = true
 	await wait(1.5, false)
 	
 	GUI.append_main_screen_text("\n\nI am detecting a curious vibration on the ships hull")
 	await wait(1, true)
-	
 	GUI.append_main_screen_text("\n\nCould that be... meteorites?")
 	await wait(1, true)
-	
-	GUI.append_main_screen_text("\n\nNo need to worry, we just need to increase the shields power a bit and we'll deflect them effortlessly")
+	GUI.append_main_screen_text("\n\nNo problem at all, we just need to increase the shields power a bit and we'll deflect them effortlessly")
 	await wait(1, true)
-	
 	GUI.append_main_screen_text("\n\nPlease complete the tasks displayed in the right panel in the correct order.")
 	await wait(0, true)
 	
@@ -143,17 +140,25 @@ func reactor_oh_state() -> void:
 	
 	GUI.append_main_screen_text("Great job avoiding that little crisis, Commander!")
 	await wait(2, true)
-	
 	GUI.append_main_screen_text("\n\nLooks like some control panels have fallen and there are a few fires.")
 	await wait(0.75, true)
-	
-	GUI.append_main_screen("No need to worry! Just tap the fallen panels to fix them and press the red extinction button to clear the fires.")
-	await wait(0.75, true)
+	GUI.append_main_screen_text("\n\nNo need to worry! Just tap the fallen panels to fix them and press the fire extinguisher button to clear the fires.")
+	await wait(3, true)
 	
 	crisis_mode = true
-	crisis_level = 1.1
+	crisis_level = 1.0
+	await wait(1.5, false)
 	
-	task_count = 15
+	GUI.append_main_screen_text("\n\nThat sound again, what is it now?")
+	await wait(1, true)
+	GUI.append_main_screen_text("\n\nIt appears that the shields are drawing a bit more energy than expected and the reactor is warming up at an accelerated pace.")
+	await wait(1, true)
+	GUI.append_main_screen_text("\n\nFear not! I will just limit the power of some unnecessary auxiliary systems.")
+	await wait(1, true)
+	GUI.append_main_screen_text("\n\nPlease complete the tasks displayed in the right panel in the correct order.")
+	await wait(0, true)
+	
+	task_count = 16
 	setup_tasks_sequence()
 
 

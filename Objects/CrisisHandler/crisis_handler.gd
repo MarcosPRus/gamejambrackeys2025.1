@@ -8,8 +8,8 @@ var fire_scene = preload("res://Objects/Fire/fire.tscn")
 @onready var SprinklerSystem = $SprinklerSystem
 @onready var RedLights = $RedLight/AnimationPlayer
 
-var fire_chance: float = 0.005
-var panel_drop_chance: float = 0.005
+var fire_chance: float = 0.001
+var panel_drop_chance: float = 0.001
 
 
 func _process(delta: float) -> void:

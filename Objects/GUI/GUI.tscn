@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0hnyjlv8t2ki"]
+[gd_scene load_steps=10 format=3 uid="uid://b0hnyjlv8t2ki"]
 
 [ext_resource type="Script" path="res://Objects/GUI/gui.gd" id="1_gqfuo"]
 [ext_resource type="PackedScene" uid="uid://cnk3xv6fvtx5t" path="res://Objects/Console/console.tscn" id="2_qcdrg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://uyipdsugflsm" path="res://Assets/Sprites/GUI Elements/ProgressBar/Under.png" id="4_jagda"]
 [ext_resource type="Texture2D" uid="uid://he51s5s6sicu" path="res://Assets/Sprites/GUI Elements/ProgressBar/Progress.png" id="5_wabh2"]
 [ext_resource type="Texture2D" uid="uid://7oe48uy43yie" path="res://Assets/Sprites/GUI Elements/Screen_Texture.png" id="6_2t3lh"]
+[ext_resource type="AudioStream" uid="uid://daho87cc21plc" path="res://Assets/Sounds/Key Type 2.wav" id="7_cwy3e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ss7xu"]
 bg_color = Color(1, 0.639216, 0, 1)
@@ -216,6 +217,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_mqddc")
 self_modulate = Color(3, 3, 3, 1)
 layout_mode = 2
 bbcode_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cwy3e")
+volume_db = -15.0
 
 [connection signal="toggled" from="SprinklersButton/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="FluxCapacitor/VBoxContainer/Calibrate" to="." method="_on_flux_capacitor_calibrate_pressed"]

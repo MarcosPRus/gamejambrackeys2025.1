@@ -1,6 +1,6 @@
 extends Control
 
-var writing_speed : float = 150.0 # In letters/second
+var writing_speed : float = 50.0 # In letters/second
 var tween
 
 @onready var MainScreenText := $MainScreenContainer/MainScreenText
@@ -31,6 +31,9 @@ func append_main_screen_text(new_text: String) -> void:
 	var text_length = new_text.length()
 	for i in text_length:
 		MainScreenText.append_text(new_text[i])
+		if !$AudioStreamPlayer.playing:
+			$AudioStreamPlayer.pitch_scale = randf_range(0.5, 1.5)
+			$AudioStreamPlayer.play()
 		await get_tree().create_timer(1/writing_speed).timeout
 	writing_finished.emit()
 

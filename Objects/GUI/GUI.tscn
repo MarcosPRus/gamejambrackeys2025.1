@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0hnyjlv8t2ki"]
+[gd_scene load_steps=11 format=3 uid="uid://b0hnyjlv8t2ki"]
 
 [ext_resource type="Script" path="res://Objects/GUI/gui.gd" id="1_gqfuo"]
 [ext_resource type="PackedScene" uid="uid://cnk3xv6fvtx5t" path="res://Objects/Console/console.tscn" id="2_qcdrg"]
 [ext_resource type="Script" path="res://Objects/GUI/GUI_panel.gd" id="3_ixn6v"]
 [ext_resource type="Texture2D" uid="uid://uyipdsugflsm" path="res://Assets/Sprites/GUI Elements/ProgressBar/Under.png" id="4_jagda"]
+[ext_resource type="Texture2D" uid="uid://boi8i6yrnk0qx" path="res://Assets/Sprites/GUI Elements/FIREEXTINGUISHER.png" id="4_v5sb3"]
 [ext_resource type="Texture2D" uid="uid://he51s5s6sicu" path="res://Assets/Sprites/GUI Elements/ProgressBar/Progress.png" id="5_wabh2"]
 [ext_resource type="Texture2D" uid="uid://7oe48uy43yie" path="res://Assets/Sprites/GUI Elements/Screen_Texture.png" id="6_2t3lh"]
-[ext_resource type="AudioStream" uid="uid://daho87cc21plc" path="res://Assets/Sounds/Key Type 2.wav" id="7_cwy3e"]
+[ext_resource type="AudioStream" uid="uid://c35iejccatp84" path="res://Assets/Sounds/mixkit-confirmation-tone-2867.wav" id="7_5jdjp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ss7xu"]
 bg_color = Color(1, 0.639216, 0, 1)
@@ -49,8 +50,8 @@ script = ExtResource("1_gqfuo")
 layout_mode = 0
 offset_left = 744.0
 offset_top = 16.0
-offset_right = 854.0
-offset_bottom = 118.0
+offset_right = 852.0
+offset_bottom = 124.0
 script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SprinklersButton"]
@@ -62,7 +63,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_ss7xu")
 toggle_mode = true
-text = "🧯"
+icon = ExtResource("4_v5sb3")
 
 [node name="FluxCapacitor" type="PanelContainer" parent="." groups=["breakable_panels"]]
 layout_mode = 0
@@ -331,9 +332,9 @@ text = "Deploy"
 [node name="AntimatterContainer" type="PanelContainer" parent="." groups=["breakable_panels"]]
 layout_mode = 0
 offset_left = 688.0
-offset_top = 144.0
+offset_top = 152.0
 offset_right = 914.0
-offset_bottom = 272.0
+offset_bottom = 275.0
 script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AntimatterContainer"]
@@ -432,7 +433,7 @@ layout_mode = 2
 bbcode_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_cwy3e")
+stream = ExtResource("7_5jdjp")
 volume_db = -7.0
 
 [connection signal="toggled" from="SprinklersButton/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

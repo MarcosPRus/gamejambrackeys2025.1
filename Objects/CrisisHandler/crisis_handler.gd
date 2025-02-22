@@ -8,8 +8,8 @@ var fire_scene = preload("res://Objects/Fire/fire.tscn")
 @onready var SprinklerSystem = $SprinklerSystem
 @onready var RedLights = $RedLight/AnimationPlayer
 
-var fire_chance: float = 0.001
-var panel_drop_chance: float = 0.001
+var fire_chance: float = 0.0025
+var panel_drop_chance: float = 0.0025
 
 
 func _process(delta: float) -> void:
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		shake_camera()
 		create_fires()
 		drop_panels()
-		Global.ship_integrity -= delta
+		Global.ship_integrity -= delta/3
 	else:
 		AlarmSoundPlayer.stop()
 		RedLights.stop()

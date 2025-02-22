@@ -1,6 +1,6 @@
 extends Control
 
-var writing_speed : float = 500.0 # In letters/second
+var writing_speed : float = 50.0 # In letters/second
 var tween
 
 @onready var MainScreenText := $MainScreenContainer/MainScreenText
@@ -28,12 +28,10 @@ func clear_main_screen() -> void:
 	#tween.tween_method(animate_main_text, "", new_text, new_text.length()/writing_speed)
 
 func append_main_screen_text(new_text: String) -> void:
+	$AudioStreamPlayer.play()
 	var text_length = new_text.length()
 	for i in text_length:
 		MainScreenText.append_text(new_text[i])
-		if !$AudioStreamPlayer.playing:
-			$AudioStreamPlayer.pitch_scale = randf_range(0.5, 1.5)
-			$AudioStreamPlayer.play()
 		await get_tree().create_timer(1/writing_speed).timeout
 	writing_finished.emit()
 
@@ -112,11 +110,53 @@ func _on_subspace_warp_disengage_pressed() -> void:
 func _on_subspace_warp_factor_drag_ended(value_changed: bool) -> void:
 	Global.action_pressed = "Set Subspace Warp Factor to " + str($SubspaceWarp/VBoxContainer/HBoxContainer/Factor.value)
 
-################################
-## Zero-point Emitter signals ##
-################################
-func _on_zpe_tune_pressed() -> void:
-	Global.action_pressed = "Tune the Zero-Point Emitter"
+######################################
+## Quantum Tunnel Optimizer signals ##
+######################################
+func _on_qto_synch_pressed() -> void:
+	Global.action_pressed = "Synchronize the Sub-Quantum Tunneling Optimizer"
 
-func _on_zpe_sensitivity_drag_ended(value_changed: bool) -> void:
-	Global.action_pressed = "Modulate the Zero-Point Emitter Sensitivity to " + str($ZeroPointEmitter/VBoxContainer/HBoxContainer/Sensitivity.value)
+func _on_qto_power_down_pressed() -> void:
+	Global.action_pressed = "Power Down the Sub-Quantum Tunneling Optimizer"
+
+func _on_qto_coefficient_drag_ended(value_changed: bool) -> void:
+	Global.action_pressed = "Adjust the Sub-Quantum Tunneling Optimizer Coefficient to " + str($QuantTunnelOptimizer/VBoxContainer/HBoxContainer/Coefficient.value)
+
+func _on_qto_level_drag_ended(value_changed: bool) -> void:
+	Global.action_pressed = "Set the Sub-Quantum Tunneling Optimizer Level to " + str($QuantTunnelOptimizer/VBoxContainer/HBoxContainer/Level.value)
+
+func _on_qto_rate_drag_ended(value_changed: bool) -> void:
+	Global.action_pressed = "Dial the Sub-Quantum Tunneling Optimizer Rate to " + str($QuantTunnelOptimizer/VBoxContainer/HBoxContainer/Rate.value)
+
+###########################
+## Tachyon Field signals ##
+###########################
+func _on_tachyon_field_optimize_pressed() -> void:
+	Global.action_pressed = "Optimize the Tachyon Field"
+
+func _on_tachyon_field_realign_pressed() -> void:
+	Global.action_pressed = "Realign the Tachyon Field"
+
+func _on_tachyon_field_deploy_pressed() -> void:
+	Global.action_pressed = "Deploy the Tachyon Field"
+
+##################################
+## Antimatter Container signals ##
+##################################
+func _on_amc_refill_pressed() -> void:
+	Global.action_pressed = "Refill the Antimatter Container"
+
+#############################
+## Plasma Conduits signals ##
+#############################
+func _on_plasma_conduits_restore_pressed() -> void:
+	Global.action_pressed = "Restore the Plasma Conduits"
+
+func _on_plasma_conduits_cooldown_pressed() -> void:
+	Global.action_pressed = "Cool-down the Plasma Conduits"
+
+func _on_plasma_conduits_adjust_pressed() -> void:
+	Global.action_pressed = "Adjust the Plasma Conduits"
+
+func _on_plasma_conduits_turn_off_pressed() -> void:
+	Global.action_pressed = "Turn off the Plasma Conduits"

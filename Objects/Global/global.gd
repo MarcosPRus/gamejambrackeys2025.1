@@ -35,8 +35,24 @@ var tasks_list : Array[String] = [
 	"Disengage Subspace Warp",
 	"Set Subspace Warp Factor to XXX",
 	
-	"Tune the Zero-Point Emitter",
-	"Modulate the Zero-Point Emitter Sensitivity to XXX"
+	"Optimize the Tachyon Field",
+	"Realign the Tachyon Field",
+	"Deploy the Tachyon Field",
+	
+	"Refill the Antimatter Container",
+	
+	"Restore the Plasma Conduits",
+	"Cool-down the Plasma Conduits",
+	"Adjust the Plasma Conduits",
+	"Turn off the Plasma Conduits",
+	
+	"Synchronize the Sub-Quantum Tunneling Optimizer",
+	"Power Down the Sub-Quantum Tunneling Optimizer",
+	"Adjust the Sub-Quantum Tunneling Optimizer Coefficient to XXX",
+	"Set the Sub-Quantum Tunneling Optimizer Level to XXX",
+	"Dial the Sub-Quantum Tunneling Optimizer Rate to XXX"
+	
+	
 ]
 
 # Define the game phases
@@ -58,7 +74,6 @@ func _ready() -> void:
 
 
 func change_state(new_state: int) -> void:
-	# TODO: Clean up the previous state
 	action_pressed = ""
 	current_task_sequence = []
 	current_task_index = 0
@@ -115,19 +130,20 @@ func micrometeors_state() -> void:
 	
 	GUI.append_main_screen_text("Excellent work, Commander!")
 	await wait(2, true)
+	GUI.clear_main_screen()
 	
 	crisis_level = 0.5
 	crisis_mode = true
 	await wait(1.5, false)
 	
-	GUI.append_main_screen_text("\n\nI am detecting a curious vibration on the ships hull")
+	GUI.append_main_screen_text("I am detecting a curious vibration on the ships hull")
 	await wait(1, true)
 	GUI.append_main_screen_text("\n\nCould that be... meteorites?")
 	await wait(1, true)
 	GUI.append_main_screen_text("\n\nNo problem at all, we just need to increase the shields power a bit and we'll deflect them effortlessly")
 	await wait(1, true)
 	
-	task_count = 8
+	task_count = 5
 	GUI.append_main_screen_text("\n\nPlease complete the " + str(task_count) + " tasks displayed in the right panel in the correct order.")
 	await wait(0, true)
 	setup_tasks_sequence()
@@ -149,14 +165,15 @@ func reactor_oh_state() -> void:
 	crisis_level = 1.0
 	await wait(1.5, false)
 	
-	GUI.append_main_screen_text("\n\nThat sound again, what is it now?")
+	GUI.clear_main_screen()
+	GUI.append_main_screen_text("That sound again, what is it now?")
 	await wait(1, true)
 	GUI.append_main_screen_text("\n\nIt appears that the shields are drawing a bit more energy than expected and the reactor is warming up at an accelerated pace.")
 	await wait(1, true)
 	GUI.append_main_screen_text("\n\nFear not! I will just limit the power of some unnecessary auxiliary systems.")
 	await wait(1, true)
 	
-	task_count = 16
+	task_count = 8
 	GUI.append_main_screen_text("\n\nPlease complete the " + str(task_count) + " tasks displayed in the right panel in the correct order.")
 	await wait(0, true)
 	setup_tasks_sequence()

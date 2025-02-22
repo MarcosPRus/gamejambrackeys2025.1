@@ -1,6 +1,7 @@
 extends Node
 
 var GUI : Control
+var SprinklerSystem : Node2D
 var main_screen_tween : Tween
 
 var crisis_mode : bool = false

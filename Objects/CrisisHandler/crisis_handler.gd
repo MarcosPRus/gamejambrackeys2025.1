@@ -6,21 +6,25 @@ var fire_scene = preload("res://Objects/Fire/fire.tscn")
 @onready var ExplosionSoundPlayer = $ExplosionSoundPlayer
 @onready var AlarmSoundPlayer = $AlarmSoundPlayer
 @onready var SprinklerSystem = $SprinklerSystem
+@onready var RedLights = $RedLight/AnimationPlayer
 
-var fire_chance: float = 0.001
-var panel_drop_chance: float = 0.0005
+var fire_chance: float = 0.005
+var panel_drop_chance: float = 0.005
 
 
 func _process(delta: float) -> void:
 	if Global.crisis_mode:
 		if !AlarmSoundPlayer.playing:
 			AlarmSoundPlayer.play()
+		if !RedLights.is_playing():
+			RedLights.play("blink_red_light")
 		shake_camera()
 		create_fires()
 		drop_panels()
 		Global.ship_integrity -= delta
 	else:
 		AlarmSoundPlayer.stop()
+		RedLights.stop()
 
 
 
@@ -35,12 +39,10 @@ func create_fires():
 		var fire_instance = fire_scene.instantiate()
 		fire_instance.global_position = Vector2(randi_range(0,1280), randi_range(0,720))
 		get_tree().current_scene.add_child(fire_instance)
-		
-		SprinklerSystem.start_sprinklers()
 
 func drop_panels():
-	pass
-
+	if randf() < panel_drop_chance * Global.crisis_level:
+		Global.GUI.drop_panel()
 
 func run_crisis_mode() -> void:
 	var intensity: int = randi_range(10,40)

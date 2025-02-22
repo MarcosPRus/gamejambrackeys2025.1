@@ -44,6 +44,16 @@ func append_task(task:String) -> void:
 	#$MainScreenText.text = new_text
 
 
+func drop_panel() -> void:
+	var breakable_panels: Array[Node]
+	
+	for panel in get_children():
+		if panel.is_in_group("breakable_panels"):
+			breakable_panels.append(panel)
+			
+	breakable_panels[randi_range(0,breakable_panels.size()-1)].broken = true
+
+
 ############################
 ## Flux capacitor signals ##
 ############################
@@ -79,3 +89,12 @@ func _on_neutron_oscillator_deactivate_pressed() -> void:
 
 func _on_adjust_neutron_oscillator_frequency_drag_ended(value_changed: bool) -> void:
 	Global.action_pressed = "Adjust Neutron Oscillator Frequency to " + str($NeutronOscillator/VBoxContainer/HBoxContainer/AdjustFrequency.value)
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		Global.SprinklerSystem.start_sprinklers()
+		await get_tree().create_timer(5).timeout
+		$SprinklersButton/VBoxContainer/CheckButton.button_pressed = false
+	else:
+		Global.SprinklerSystem.stop_sprinklers()

@@ -16,6 +16,7 @@ scale_max = 5.0
 color = Color(0.160784, 0.678431, 1, 1)
 
 [node name="SprinklerSystem" type="Node2D"]
+z_index = 10
 script = ExtResource("1_wcj65")
 
 [node name="Sprinkler1" type="GPUParticles2D" parent="."]

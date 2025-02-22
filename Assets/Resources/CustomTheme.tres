@@ -1,5 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://qphyb6yi7v3u"]
 
+[ext_resource type="StyleBox" uid="uid://dds2q1x1864sf" path="res://Assets/Resources/new_style_box_flat.tres" id="1_b4d6a"]
 [ext_resource type="Texture2D" uid="uid://bld2e0sw1qiga" path="res://Assets/Sprites/GUI Elements/Panel_Texture.png" id="1_rmgjf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mq6v0"]
@@ -40,25 +41,6 @@ expand_margin_bottom = 6.0
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w216r"]
-bg_color = Color(0.760784, 0.764706, 0.780392, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 0.945098, 0.909804, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 1
-expand_margin_left = 6.0
-expand_margin_top = 6.0
-expand_margin_right = 6.0
-expand_margin_bottom = 6.0
-shadow_size = 2
-shadow_offset = Vector2(2, 2)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_euyy8"]
 texture = ExtResource("1_rmgjf")
 texture_margin_left = 20.0
@@ -80,7 +62,7 @@ Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/styles/hover = SubResource("StyleBoxFlat_mq6v0")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_sc32y")
-Button/styles/normal = SubResource("StyleBoxFlat_w216r")
+Button/styles/normal = ExtResource("1_b4d6a")
 Button/styles/pressed = SubResource("StyleBoxFlat_sc32y")
 HSlider/icons/grabber = null
 Label/colors/font_color = Color(0.113725, 0.168627, 0.32549, 1)

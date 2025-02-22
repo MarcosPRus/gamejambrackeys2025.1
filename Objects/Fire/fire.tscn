@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxgd1q1kxrimq"]
+[gd_scene load_steps=10 format=3 uid="uid://dxgd1q1kxrimq"]
 
 [ext_resource type="Gradient" uid="uid://mal4qwrhwhn5" path="res://Objects/Fire/Fire_gradient.tres" id="1_y2c33"]
 [ext_resource type="Texture2D" uid="uid://yuogmei7ba43" path="res://Objects/Fire/fire_texture.tres" id="2_f0uli"]
+[ext_resource type="Script" path="res://Objects/Fire/fire.gd" id="3_30afx"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_w06ne"]
 gradient = ExtResource("1_y2c33")
@@ -43,3 +44,4 @@ amount = 100
 process_material = SubResource("ParticleProcessMaterial_3bmk3")
 texture = ExtResource("2_f0uli")
 lifetime = 10.0
+script = ExtResource("3_30afx")

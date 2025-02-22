@@ -47,9 +47,9 @@ script = ExtResource("1_gqfuo")
 
 [node name="SprinklersButton" type="PanelContainer" parent="." groups=["breakable_panels"]]
 layout_mode = 0
-offset_left = 984.0
+offset_left = 739.0
 offset_top = 24.0
-offset_right = 1105.0
+offset_right = 860.0
 offset_bottom = 136.0
 script = ExtResource("3_ixn6v")
 
@@ -66,10 +66,10 @@ text = "🧯"
 
 [node name="FluxCapacitor" type="PanelContainer" parent="." groups=["breakable_panels"]]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 288.0
-offset_right = 334.0
-offset_bottom = 472.0
+offset_left = 24.0
+offset_top = 304.0
+offset_right = 296.0
+offset_bottom = 488.0
 script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FluxCapacitor"]
@@ -79,8 +79,8 @@ size_flags_horizontal = 4
 [node name="Label" type="Label" parent="FluxCapacitor/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Flux Capacitor"
+horizontal_alignment = 1
 
 [node name="Calibrate" type="Button" parent="FluxCapacitor/VBoxContainer"]
 layout_mode = 2
@@ -96,21 +96,21 @@ text = "Override"
 
 [node name="CryogenicValve" type="PanelContainer" parent="." groups=["breakable_panels"]]
 layout_mode = 0
-offset_left = 96.0
+offset_left = 24.0
 offset_top = 520.0
-offset_right = 373.0
-offset_bottom = 700.0
+offset_right = 297.0
+offset_bottom = 704.0
 script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CryogenicValve"]
 layout_mode = 2
-size_flags_horizontal = 5
+size_flags_horizontal = 4
 
 [node name="Label" type="Label" parent="CryogenicValve/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Cryogenic Valve"
+horizontal_alignment = 1
 
 [node name="Open" type="Button" parent="CryogenicValve/VBoxContainer"]
 layout_mode = 2
@@ -137,10 +137,10 @@ ticks_on_borders = true
 
 [node name="NeutronOscillator" type="PanelContainer" parent="." groups=["breakable_panels"]]
 layout_mode = 0
-offset_left = 896.0
-offset_top = 464.0
-offset_right = 1193.0
-offset_bottom = 648.0
+offset_left = 328.0
+offset_top = 304.0
+offset_right = 617.0
+offset_bottom = 488.0
 script = ExtResource("3_ixn6v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NeutronOscillator"]
@@ -150,8 +150,8 @@ size_flags_horizontal = 5
 [node name="Label" type="Label" parent="NeutronOscillator/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Neutron Oscillator"
+horizontal_alignment = 1
 
 [node name="Activate" type="Button" parent="NeutronOscillator/VBoxContainer"]
 layout_mode = 2
@@ -176,12 +176,135 @@ max_value = 4.0
 tick_count = 5
 ticks_on_borders = true
 
+[node name="SubspaceWarp" type="PanelContainer" parent="." groups=["breakable_panels"]]
+offset_left = 328.0
+offset_top = 520.0
+offset_right = 616.0
+offset_bottom = 704.0
+script = ExtResource("3_ixn6v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubspaceWarp"]
+layout_mode = 2
+size_flags_horizontal = 5
+
+[node name="Label" type="Label" parent="SubspaceWarp/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Subspace Warp"
+horizontal_alignment = 1
+
+[node name="Engage" type="Button" parent="SubspaceWarp/VBoxContainer"]
+layout_mode = 2
+text = "Engage"
+
+[node name="Disengage" type="Button" parent="SubspaceWarp/VBoxContainer"]
+layout_mode = 2
+text = "Disengage"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubspaceWarp/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SubspaceWarp/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.168627, 0.32549, 1)
+text = "Factor:"
+
+[node name="Factor" type="HSlider" parent="SubspaceWarp/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(131, 0)
+layout_mode = 2
+max_value = 4.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="ZeroPointEmitter" type="PanelContainer" parent="." groups=["breakable_panels"]]
+offset_left = 944.0
+offset_top = 464.0
+offset_right = 1248.0
+offset_bottom = 704.0
+script = ExtResource("3_ixn6v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ZeroPointEmitter"]
+layout_mode = 2
+size_flags_horizontal = 5
+
+[node name="Label" type="Label" parent="ZeroPointEmitter/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Zero-Point
+Emitter"
+horizontal_alignment = 1
+
+[node name="Tune" type="Button" parent="ZeroPointEmitter/VBoxContainer"]
+layout_mode = 2
+text = "Tune"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ZeroPointEmitter/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ZeroPointEmitter/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.168627, 0.32549, 1)
+theme_override_constants/line_spacing = -4
+text = "F
+a
+c
+t
+o
+r"
+
+[node name="Sensitivity" type="VSlider" parent="ZeroPointEmitter/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+max_value = 4.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="ZeroPointEmitter/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.168627, 0.32549, 1)
+theme_override_constants/line_spacing = -4
+text = "F
+a
+c
+t
+o
+r"
+
+[node name="Sensitivity2" type="VSlider" parent="ZeroPointEmitter/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+max_value = 4.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label3" type="Label" parent="ZeroPointEmitter/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.113725, 0.168627, 0.32549, 1)
+theme_override_constants/line_spacing = -4
+text = "F
+a
+c
+t
+o
+r"
+
+[node name="Sensitivity3" type="VSlider" parent="ZeroPointEmitter/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+max_value = 4.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Tune" type="Button" parent="ZeroPointEmitter/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Tune"
+
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 72.0
-offset_right = 112.0
-offset_bottom = 328.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 272.0
 step = 0.1
 value = 100.0
 fill_mode = 3
@@ -191,10 +314,10 @@ tint_progress = Color(3, 3, 3, 1)
 
 [node name="MainScreenContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 8.0
-offset_right = 624.0
-offset_bottom = 272.0
+offset_left = 88.0
+offset_top = 16.0
+offset_right = 672.0
+offset_bottom = 280.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_mqddc")
 
 [node name="MainScreenText" type="RichTextLabel" parent="MainScreenContainer"]
@@ -207,10 +330,10 @@ scroll_following = true
 
 [node name="SecondaryScreenContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 632.0
-offset_top = 8.0
-offset_right = 968.0
-offset_bottom = 392.0
+offset_left = 928.0
+offset_top = 16.0
+offset_right = 1264.0
+offset_bottom = 448.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_mqddc")
 
 [node name="SecondaryScreenText" type="RichTextLabel" parent="SecondaryScreenContainer"]
@@ -220,7 +343,87 @@ bbcode_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_cwy3e")
-volume_db = -15.0
+volume_db = -7.0
+
+[node name="FluxCapacitor2" type="PanelContainer" parent="." groups=["breakable_panels"]]
+offset_left = 648.0
+offset_top = 520.0
+offset_right = 912.0
+offset_bottom = 704.0
+script = ExtResource("3_ixn6v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FluxCapacitor2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="FluxCapacitor2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Flux Capacitor"
+horizontal_alignment = 1
+
+[node name="Calibrate" type="Button" parent="FluxCapacitor2/VBoxContainer"]
+layout_mode = 2
+text = "Calibrate"
+
+[node name="Revert" type="Button" parent="FluxCapacitor2/VBoxContainer"]
+layout_mode = 2
+text = "Revert"
+
+[node name="Override" type="Button" parent="FluxCapacitor2/VBoxContainer"]
+layout_mode = 2
+text = "Override"
+
+[node name="FluxCapacitor3" type="PanelContainer" parent="." groups=["breakable_panels"]]
+offset_left = 688.0
+offset_top = 168.0
+offset_right = 914.0
+offset_bottom = 268.0
+script = ExtResource("3_ixn6v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FluxCapacitor3"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="FluxCapacitor3/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Flux Capacitor"
+horizontal_alignment = 1
+
+[node name="Calibrate" type="Button" parent="FluxCapacitor3/VBoxContainer"]
+layout_mode = 2
+text = "Calibrate"
+
+[node name="FluxCapacitor4" type="PanelContainer" parent="." groups=["breakable_panels"]]
+layout_mode = 2
+offset_left = 648.0
+offset_top = 304.0
+offset_right = 912.0
+offset_bottom = 488.0
+script = ExtResource("3_ixn6v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FluxCapacitor4"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="FluxCapacitor4/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Flux Capacitor"
+horizontal_alignment = 1
+
+[node name="Calibrate" type="Button" parent="FluxCapacitor4/VBoxContainer"]
+layout_mode = 2
+text = "Calibrate"
+
+[node name="Calibrate2" type="Button" parent="FluxCapacitor4/VBoxContainer"]
+layout_mode = 2
+text = "Calibrate"
+
+[node name="Calibrate3" type="Button" parent="FluxCapacitor4/VBoxContainer"]
+layout_mode = 2
+text = "Calibrate"
 
 [connection signal="toggled" from="SprinklersButton/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="FluxCapacitor/VBoxContainer/Calibrate" to="." method="_on_flux_capacitor_calibrate_pressed"]
@@ -232,3 +435,18 @@ volume_db = -15.0
 [connection signal="pressed" from="NeutronOscillator/VBoxContainer/Activate" to="." method="_on_neutron_oscillator_activate_pressed"]
 [connection signal="pressed" from="NeutronOscillator/VBoxContainer/Deactivate" to="." method="_on_neutron_oscillator_deactivate_pressed"]
 [connection signal="drag_ended" from="NeutronOscillator/VBoxContainer/HBoxContainer/AdjustFrequency" to="." method="_on_adjust_neutron_oscillator_frequency_drag_ended"]
+[connection signal="pressed" from="SubspaceWarp/VBoxContainer/Engage" to="." method="_on_subspace_warp_engage_pressed"]
+[connection signal="pressed" from="SubspaceWarp/VBoxContainer/Disengage" to="." method="_on_subspace_warp_disengage_pressed"]
+[connection signal="drag_ended" from="SubspaceWarp/VBoxContainer/HBoxContainer/Factor" to="." method="_on_subspace_warp_factor_drag_ended"]
+[connection signal="pressed" from="ZeroPointEmitter/VBoxContainer/Tune" to="." method="_on_zpe_tune_pressed"]
+[connection signal="drag_ended" from="ZeroPointEmitter/VBoxContainer/HBoxContainer/Sensitivity" to="." method="_on_zpe_sensitivity_drag_ended"]
+[connection signal="drag_ended" from="ZeroPointEmitter/VBoxContainer/HBoxContainer/Sensitivity2" to="." method="_on_zpe_sensitivity_drag_ended"]
+[connection signal="drag_ended" from="ZeroPointEmitter/VBoxContainer/HBoxContainer/Sensitivity3" to="." method="_on_zpe_sensitivity_drag_ended"]
+[connection signal="pressed" from="ZeroPointEmitter/VBoxContainer/HBoxContainer/Tune" to="." method="_on_zpe_tune_pressed"]
+[connection signal="pressed" from="FluxCapacitor2/VBoxContainer/Calibrate" to="." method="_on_flux_capacitor_calibrate_pressed"]
+[connection signal="pressed" from="FluxCapacitor2/VBoxContainer/Revert" to="." method="_on_flux_capacitor_revert_pressed"]
+[connection signal="pressed" from="FluxCapacitor2/VBoxContainer/Override" to="." method="_on_flux_capacitor_override_pressed"]
+[connection signal="pressed" from="FluxCapacitor3/VBoxContainer/Calibrate" to="." method="_on_flux_capacitor_calibrate_pressed"]
+[connection signal="pressed" from="FluxCapacitor4/VBoxContainer/Calibrate" to="." method="_on_flux_capacitor_calibrate_pressed"]
+[connection signal="pressed" from="FluxCapacitor4/VBoxContainer/Calibrate2" to="." method="_on_flux_capacitor_calibrate_pressed"]
+[connection signal="pressed" from="FluxCapacitor4/VBoxContainer/Calibrate3" to="." method="_on_flux_capacitor_calibrate_pressed"]

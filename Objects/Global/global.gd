@@ -31,12 +31,12 @@ var tasks_list : Array[String] = [
 	"Deactivate the Neutron Oscillator",
 	"Adjust Neutron Oscillator Frequency to XXX",
 	
-	#"Engage Subspace Warp",
-	#"Disengage Subspace Warp",
-	#"Set Subspace Warp Factor to XXX",
+	"Engage Subspace Warp",
+	"Disengage Subspace Warp",
+	"Set Subspace Warp Factor to XXX",
 	
-	#"Tune the Zero-Point Emitter",
-	#"Modulate the Zero-Point Emitter Sensitivity to XXX"
+	"Tune the Zero-Point Emitter",
+	"Modulate the Zero-Point Emitter Sensitivity to XXX"
 ]
 
 # Define the game phases
@@ -92,12 +92,12 @@ func start_state() -> void:
 	
 	GUI.append_main_screen_text("Good morning, Commander!")
 	await wait(1, true)
-	GUI.append_main_screen_text("\n\nToday is the final day of our expedition.")
+	GUI.append_main_screen_text("\n\nToday is the final day of our expedition and everything is running perfectly.")
 	await wait(1, true)
-	GUI.append_main_screen_text(" As always, everything is running perfectly.")
+	GUI.append_main_screen_text("\n\nAs you can see on the top-left bar, the ship integrity is at 100%.")
 	await wait(1, true)
 	GUI.append_main_screen_text("\n\nWe are scheduled to arrive at the destination in just a few hours.")
-	await wait(1, true)
+	await wait(0.75, true)
 	GUI.append_main_screen_text(" At this point in the mission, nothing can possibly go wrong, so congratulations on another flawlessly succesful mission!")
 	await wait(1.5, true)
 	GUI.append_main_screen_text("\n\nI've reviewed all the ship systems and identified a few minor parameters that need a quick adjustment to maintain our pristine operational status.")
@@ -126,10 +126,10 @@ func micrometeors_state() -> void:
 	await wait(1, true)
 	GUI.append_main_screen_text("\n\nNo problem at all, we just need to increase the shields power a bit and we'll deflect them effortlessly")
 	await wait(1, true)
-	GUI.append_main_screen_text("\n\nPlease complete the tasks displayed in the right panel in the correct order.")
-	await wait(0, true)
 	
 	task_count = 8
+	GUI.append_main_screen_text("\n\nPlease complete the " + str(task_count) + " tasks displayed in the right panel in the correct order.")
+	await wait(0, true)
 	setup_tasks_sequence()
 
 
@@ -155,10 +155,10 @@ func reactor_oh_state() -> void:
 	await wait(1, true)
 	GUI.append_main_screen_text("\n\nFear not! I will just limit the power of some unnecessary auxiliary systems.")
 	await wait(1, true)
-	GUI.append_main_screen_text("\n\nPlease complete the tasks displayed in the right panel in the correct order.")
-	await wait(0, true)
 	
 	task_count = 16
+	GUI.append_main_screen_text("\n\nPlease complete the " + str(task_count) + " tasks displayed in the right panel in the correct order.")
+	await wait(0, true)
 	setup_tasks_sequence()
 
 

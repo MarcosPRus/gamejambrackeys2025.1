@@ -66,6 +66,5 @@ Button/styles/normal = ExtResource("1_b4d6a")
 Button/styles/pressed = SubResource("StyleBoxFlat_sc32y")
 HSlider/icons/grabber = null
 Label/colors/font_color = Color(0.113725, 0.168627, 0.32549, 1)
-Label/colors/font_outline_color = Color(0, 0, 0, 0)
-Label/constants/outline_size = 6
+Label/constants/outline_size = 1
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_euyy8")

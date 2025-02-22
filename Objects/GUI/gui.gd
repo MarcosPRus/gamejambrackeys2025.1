@@ -1,6 +1,6 @@
 extends Control
 
-var writing_speed : float = 50.0 # In letters/second
+var writing_speed : float = 500.0 # In letters/second
 var tween
 
 @onready var MainScreenText := $MainScreenContainer/MainScreenText
@@ -56,6 +56,13 @@ func drop_panel() -> void:
 			
 	breakable_panels[randi_range(0,breakable_panels.size()-1)].broken = true
 
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		Global.SprinklerSystem.start_sprinklers()
+		await get_tree().create_timer(5).timeout
+		$SprinklersButton/VBoxContainer/CheckButton.button_pressed = false
+	else:
+		Global.SprinklerSystem.stop_sprinklers()
 
 ############################
 ## Flux capacitor signals ##
@@ -93,11 +100,23 @@ func _on_neutron_oscillator_deactivate_pressed() -> void:
 func _on_adjust_neutron_oscillator_frequency_drag_ended(value_changed: bool) -> void:
 	Global.action_pressed = "Adjust Neutron Oscillator Frequency to " + str($NeutronOscillator/VBoxContainer/HBoxContainer/AdjustFrequency.value)
 
+###########################
+## Subspace Warp signals ##
+###########################
+func _on_subspace_warp_engage_pressed() -> void:
+	Global.action_pressed = "Engage Subspace Warp"
 
-func _on_check_button_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		Global.SprinklerSystem.start_sprinklers()
-		await get_tree().create_timer(5).timeout
-		$SprinklersButton/VBoxContainer/CheckButton.button_pressed = false
-	else:
-		Global.SprinklerSystem.stop_sprinklers()
+func _on_subspace_warp_disengage_pressed() -> void:
+	Global.action_pressed = "Disengage Subspace Warp"
+
+func _on_subspace_warp_factor_drag_ended(value_changed: bool) -> void:
+	Global.action_pressed = "Set Subspace Warp Factor to " + str($SubspaceWarp/VBoxContainer/HBoxContainer/Factor.value)
+
+################################
+## Zero-point Emitter signals ##
+################################
+func _on_zpe_tune_pressed() -> void:
+	Global.action_pressed = "Tune the Zero-Point Emitter"
+
+func _on_zpe_sensitivity_drag_ended(value_changed: bool) -> void:
+	Global.action_pressed = "Modulate the Zero-Point Emitter Sensitivity to " + str($ZeroPointEmitter/VBoxContainer/HBoxContainer/Sensitivity.value)

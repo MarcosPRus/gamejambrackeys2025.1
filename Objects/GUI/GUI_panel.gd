@@ -35,6 +35,7 @@ func rotate(delta: float) -> void:
 func fix() -> void:
 	broken = false
 	rotation = 0.0
+	angular_vel = 0
 
 
 func _on_mouse_entered() -> void:

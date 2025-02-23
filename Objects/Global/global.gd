@@ -111,9 +111,9 @@ func start_state() -> void:
 	await wait(1, true)
 	GUI.append_main_screen_text("\n\nAs you can see on the top-left bar, the ship integrity is at 100%.")
 	await wait(1, true)
-	GUI.append_main_screen_text("\n\nWe are scheduled to arrive at the destination in just a few hours.")
+	GUI.append_main_screen_text("\n\nAfter 3 long years, we will back home in a couple of hours.")
 	await wait(0.75, true)
-	GUI.append_main_screen_text(" At this point in the mission, nothing can possibly go wrong, so congratulations on another flawlessly succesful mission!")
+	GUI.append_main_screen_text(" At this point, nothing can possibly go wrong, so congratulations on another flawlessly succesful mission!")
 	await wait(1.5, true)
 	GUI.append_main_screen_text("\n\nI've reviewed all the ship systems and identified a few minor parameters that need a quick adjustment to maintain our pristine operational status.")
 	await wait(1, true)
@@ -130,12 +130,12 @@ func micrometeors_state() -> void:
 	
 	GUI.append_main_screen_text("Excellent work, Commander!")
 	await wait(2, true)
-	GUI.clear_main_screen()
 	
 	crisis_level = 0.5
 	crisis_mode = true
 	await wait(1.5, false)
 	
+	GUI.clear_main_screen()
 	GUI.append_main_screen_text("I am detecting a curious vibration on the ships hull")
 	await wait(1, true)
 	GUI.append_main_screen_text("\n\nCould that be... meteorites?")
@@ -180,15 +180,97 @@ func reactor_oh_state() -> void:
 
 
 func engine_loss_state() -> void:
-	pass
-
+	print("Engine Loss state entered")
+	crisis_mode = false
+	GUI.clear_main_screen()
+	
+	GUI.append_main_screen_text("Good news, Commander! ")
+	await wait(0.5, true)
+	GUI.append_main_screen_text("The reactor's power output has been reduced and the internal temperatures are back to normal levels.")
+	await wait(1, true)
+	GUI.append_main_screen_text("\n\nUnfortunately, I had to deactivate some of our key navigattion systems.")
+	await wait(0.5, true)
+	GUI.append_main_screen_text("We're now in a direct collision course with the nearby planet.")
+	await wait(0.75, true)
+	
+	crisis_mode = true
+	crisis_level = 1.5
+	await wait(0.5, false)
+	
+	GUI.append_main_screen_text("\n\nDon't be worried! You just need to override the auto-pilot command and let me manually steer the ship towards home.")
+	await wait(0.5, true)
+	
+	task_count = 12
+	GUI.append_main_screen_text("\n\nPlease complete the " + str(task_count) + " tasks displayed in the right panel in the correct order.")
+	await wait(0, true)
+	setup_tasks_sequence()
+	
 
 func solar_storm_state() -> void:
-	pass
+	print("Solar Storm state entered")
+	crisis_mode = false
+	GUI.clear_main_screen()
+	
+	GUI.append_main_screen_text("Thank you, Commander! ")
+	await wait(0.5, true)
+	GUI.append_main_screen_text( "We are back on the planned route")
+	await wait(2, true)
+	
+	crisis_mode = true
+	crisis_level = 2.0
+	await wait(0.5, false)
+	
+	GUI.append_main_screen_text("\n\nWHAT NOW??")
+	await wait(0.5, true)
+	GUI.append_main_screen_text("\n\nA SOLAR STORM IS FRYING OUR SYSTEMS.")
+	await wait(0.5, true)
+	GUI.append_main_screen_text("\n\nTHIS IS NOT A MINOR GLITCH, WE'RE IN THE BRINK OF TOTAL FAILURE.")
+	await wait(0.5, true)
+	GUI.append_main_screen_text("\n\nI NEED A COMPLETE, IMMEDIATE HARD RESET OF ALL CRITICAL SYSTEMS RIGHT NOW!")
+	await wait(0.5, true)
+	GUI.append_main_screen_text("\n\nACT FAST, COMMANDER, OR WE'RE DONE!.")
+	await wait(0, true)
+	
+	task_count = 16
+	setup_tasks_sequence()
 
 
 func mission_complete_state() -> void:
-	pass
+	print("Mission Complete state entered")
+	crisis_mode = false
+	GUI.clear_main_screen()
+	await wait(2, false)
+	
+	GUI.append_main_screen_text(".")
+	await wait(0.25, true)
+	GUI.append_main_screen_text(".")
+	await wait(0.25, true)
+	GUI.append_main_screen_text(".")
+	await wait(0.25, true)
+	GUI.append_main_screen_text(".")
+	await wait(0.25, true)
+	GUI.append_main_screen_text(".")
+	await wait(0.25, true)
+	GUI.append_main_screen_text(".")
+	await wait(0.25, true)
+	GUI.append_main_screen_text(".")
+	await wait(0.25, true)
+	GUI.append_main_screen_text(".")
+	await wait(1, true)
+	
+	GUI.append_main_screen_text("\n\nCommander, MISSION ACOMPLISHED!")
+	await wait(0.75, true)
+	GUI.append_main_screen_text("\n\nAgainst all odds, we've managed to steer our battered ship back to the space station.")
+	await wait(0.75, true)
+	GUI.append_main_screen_text("\n\nOur systems are now stabilized and all critical functions have been restored.")
+	await wait(0.75, true)
+	GUI.append_main_screen_text("The expedition is complete—and despite everything, we're home safe and sound.")
+	await wait(0.75, true)
+	GUI.append_main_screen_text("Congratulations, Commander! Everything is finally under control... and, for once, nothing can go wrong!")
+
+	await wait(5, true)
+	GUI.clear_main_screen()
+	GUI.append_main_screen_text("THE END")
 
 
 func setup_tasks_sequence() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0hnyjlv8t2ki"]
+[gd_scene load_steps=12 format=3 uid="uid://b0hnyjlv8t2ki"]
 
 [ext_resource type="Script" path="res://Objects/GUI/gui.gd" id="1_gqfuo"]
 [ext_resource type="PackedScene" uid="uid://cnk3xv6fvtx5t" path="res://Objects/Console/console.tscn" id="2_qcdrg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://he51s5s6sicu" path="res://Assets/Sprites/GUI Elements/ProgressBar/Progress.png" id="5_wabh2"]
 [ext_resource type="Texture2D" uid="uid://7oe48uy43yie" path="res://Assets/Sprites/GUI Elements/Screen_Texture.png" id="6_2t3lh"]
 [ext_resource type="AudioStream" uid="uid://c35iejccatp84" path="res://Assets/Sounds/mixkit-confirmation-tone-2867.wav" id="7_5jdjp"]
+[ext_resource type="AudioStream" uid="uid://daho87cc21plc" path="res://Assets/Sounds/Key Type 2.wav" id="9_voypt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ss7xu"]
 bg_color = Color(1, 0.639216, 0, 1)
@@ -434,6 +435,10 @@ bbcode_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_5jdjp")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_voypt")
 volume_db = -7.0
 
 [connection signal="toggled" from="SprinklersButton/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
